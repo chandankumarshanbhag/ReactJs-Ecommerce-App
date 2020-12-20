@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import useUI from "./utils/ui"
+import {ThemeProvider} from "@material-ui/core"
+import createTheme from "./theme";
+import Button from "@material-ui/core/Button"
+import DefaultLayout from "./layouts/default"
 
 function App() {
+  const {theme,setTheme,themes} = useUI();
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={createTheme(theme)}>
+      <DefaultLayout>
+      <Button onClick={() => setTheme(themes.UNICORN)} variant="contained" color="primary">Hello</Button>
+      </DefaultLayout>
+    </ThemeProvider>
   );
 }
 
