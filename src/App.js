@@ -2,8 +2,7 @@ import React from 'react';
 import useUI from "./utils/ui"
 import {ThemeProvider} from "@material-ui/core"
 import createTheme from "./theme";
-import Button from "@material-ui/core/Button"
-import DefaultLayout from "./layouts/default"
+import Router from "./router"
 
 function App() {
   const {theme,setTheme,themes} = useUI();
@@ -11,9 +10,7 @@ function App() {
 
   return (
     <ThemeProvider theme={createTheme(theme)}>
-      <DefaultLayout>
-      <Button onClick={() => setTheme(themes.UNICORN)} variant="contained" color="primary">Hello</Button>
-      </DefaultLayout>
+      <Router />
     </ThemeProvider>
   );
 }
